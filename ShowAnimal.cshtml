@@ -1,0 +1,29 @@
+﻿@model IEnumerable<PetShop.Data.Models.Animal>
+
+@{
+    ViewData["Title"] = "ShowAnimal";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@ViewBag.Selected
+
+<table class="table-bordered">
+    <thead>
+        <tr>
+            <th>Portrait</th>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>Find out more and comment</th>
+        </tr>
+    </thead>
+    <tbody id="DataSerching">
+        @foreach(var item in Model!)
+        {
+            @Model.Where(c => c.AnimalId == c.CategoryId).ToList();
+            <tr>
+                <td>@item.Name</td>
+            </tr>
+        }
+    </tbody>
+</table>

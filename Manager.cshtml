@@ -1,0 +1,25 @@
+﻿
+@{
+    ViewData["Title"] = "Manager";
+}
+
+<article>
+    <section>
+<div class="select">
+    <label for="cars">Please select a category:</label>
+    <select name="cars" id="cars">
+    <option value="volvo">Volvo</option>
+    <option value="saab">Saab</option>
+    <option value="mercedes">Mercedes</option>
+    <option value="audi">Audi</option>
+    </select>
+</div>
+</section>
+<section>
+<a asp-action="CreateAnimal" asp-controller="Admin">
+      <input type="submit" value="AddNew"/>
+</a>
+</section>
+</article>
+
+

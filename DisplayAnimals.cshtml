@@ -1,0 +1,150 @@
+﻿@model IEnumerable<PetShop.Data.Models.Category>
+
+@{
+    ViewData["Title"] = "DisplayAnimals";
+}
+
+
+@foreach (var item in Model!)
+{
+    <a asp-action="ShowAnimal" asp-route-animel="@item.CategoryId">@item.Name</a>
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@*<div>
+<select asp-items="ViewBag.CategoryId" id="selectItem"></select>
+</div>
+@Html.TextBox("Search")<input type="submit" id="SearchBtn" value="Serch" />
+<table class="table-bordered">
+    <thead>
+        <tr>
+            <th>Portrait</th>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>Find out more and comment</th>
+        </tr>
+    </thead>
+    <tbody id="DataSerching">
+        @foreach(var item in Model!)
+        {
+            <tr>
+                <td>@item.PhotoUrl</td>
+                <td>@item.Name</td>
+                <td><input type="submit" value="Detail" asp-action="Details"></td>
+            </tr>
+        }
+    </tbody>
+</table>*@
+
+@*<script>
+$(document).ready(function(){
+    $("#SearchBtn").click(function(){
+        var SearchBy = $("#selectItem").val();
+        var SearchValue = $("#Search").val();
+        var SetData = $("#DataSerching");
+        SetData.html("");
+        $.ajax({
+        type: "post";
+        URL: "/Catalog/GetSearchingData?Searchby=" +SearchBy + "&SearchValue=" + SearchValue,
+        contentType: "html",
+        success: function(resulat){
+            if(resulat.lenght == 0){
+                SetData.append('<tr style="color:red"><td colspan="3">No Match Data</td><tr>')
+            }
+            else{
+                $.each(resulat,function(index,value)){
+                    var Data = "<tr>" +
+                    "<td>" + value.PhotoUrl + "</td>" +
+                    "<td>" + value.Name + "</td>" +
+                    "<td>" + value.submit + "</td>" + 
+                    "<tr>";
+                    SetData.append(Data);
+                }
+            }
+        }
+})
+    })
+})
+</script>*@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@*<article>
+    <section>
+    <div>
+    <label>Please select a category:</label>
+    <select asp-items="ViewBag.CategoryId" class="selectItem"></select>
+    </div>
+    </section>
+
+    <section>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Portrait</th>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>Find out more and comment</th>
+        </tr>
+    </thead>
+    <tbody>
+   @foreach (var item in Model!) {
+       <tr>
+            <td>
+               @Model.Where(c => c.AnimalId == c.CategoryId).ToList();
+           </td>
+         <td>
+               @Html.DisplayFor(modelItem => item.Name)
+           </td>
+            <td>
+                <input type="submit" value="Detail" asp-action="Details">
+            </td>
+        </tr>
+    }
+
+</tbody>
+</table> 
+</section>
+*@@*</article>*@
